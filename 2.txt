@@ -1,0 +1,18 @@
+clear
+clc
+pic=imread('C:\Users\Dell\Desktop\first  assignment\lena.bmp');
+pic=double(pic);
+mean=0;                   %¾ùÖµ
+var=0;                 %·½²î
+for i=1:512
+    for j=1:512
+        mean=pic(i,j)+mean;
+    end
+end
+mean=mean/512/512;
+for i=1:512
+    for j=1:512
+        var=var+(pic(i,j)-mean)^2;
+    end
+end
+var=sqrt(var);

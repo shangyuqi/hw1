@@ -1,0 +1,41 @@
+clear
+clc
+pic=imread('C:\Users\Dell\Desktop\first  assignment\elain1.bmp');
+for i=1:512
+    for j=1:512
+        picnew(i,floor(j+i*tan(15*pi/180)))=pic(i,j);
+    end
+end
+a=imresize(picnew,[2048,2048],'nearest');
+b=imresize(picnew,[2048,2048],'bilinear');
+c=imresize(picnew,[2048,2048],'bicubic');
+d=imrotate(pic,30,'nearest');
+e=imrotate(pic,30,'bilinear');
+f=imrotate(pic,30,'bicubic');
+d=imresize(d,[2048,2048],'nearest');
+e=imresize(e,[2048,2048],'bilinear');
+f=imresize(f,[2048,2048],'bicubic');
+subplot(2,3,1);
+imshow(a)
+title('近邻水平剪切')
+subplot(2,3,2);
+imshow(b)
+title('双线性水平剪切')
+subplot(2,3,3);
+imshow(c)
+title('双三次插值水平剪切')
+subplot(2,3,4);
+imshow(d)
+title('近邻旋转')
+subplot(2,3,5);
+imshow(e)
+title('双线性旋转')
+subplot(2,3,6);
+imshow(f)
+title('双三次插值旋转')
+imwrite(a,'near shear.bmp','bmp')
+imwrite(b,'bili shear.bmp','bmp')
+imwrite(c,'bicu shear.bmp','bmp')
+imwrite(d,'near rotate.bmp','bmp')
+imwrite(e,'bili rotate.bmp','bmp')
+imwrite(f,'bicu rotate.bmp','bmp')

@@ -1,0 +1,13 @@
+clear
+clc
+pic=imread('C:\Users\Dell\Desktop\first  assignment\lena.bmp');
+pic_i=pic;
+for i=1:8
+    for m=1:512
+        for n=1:512
+            pic_i(m,n)=round(pic(m,n)/2^i)*2^i;
+        end
+    end
+    subplot(2,4,i);
+    imshow(pic_i);
+end
